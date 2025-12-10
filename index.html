@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Premium Music Player</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dark">
+
+  <div class="app">
+    <header>
+      <div class="brand">
+        <img src="" alt="" id="miniCover" class="mini-cover">
+        <h1>My Music</h1>
+      </div>
+
+      <div class="controls-head">
+        <label class="theme-toggle">
+          <input type="checkbox" id="themeSwitch" />
+          <span class="slider"></span>
+        </label>
+        <button id="uploadBtn" class="btn">Upload</button>
+        <input id="fileInput" type="file" accept="audio/*" multiple hidden>
+      </div>
+    </header>
+
+    <main>
+      <section class="left">
+        <div class="visualizer-wrap">
+          <canvas id="viz"></canvas>
+          <div class="blur-bg" id="blurBg"></div>
+        </div>
+
+        <div class="player-card">
+          <img id="cover" class="cover" src="covers/cover1.jpg" alt="cover">
+          <div class="meta">
+            <div>
+              <div id="title" class="title">Title</div>
+              <div id="artist" class="artist">Artist</div>
+            </div>
+
+            <div class="time-row">
+              <span id="currentTime">0:00</span>
+              <span id="duration">0:00</span>
+            </div>
+
+            <div class="progress-wrap" id="progressWrap">
+              <div id="progress" class="progress"></div>
+            </div>
+
+            <div class="buttons">
+              <button id="prev" class="icon">⏮</button>
+              <button id="rew" class="icon sm">⏪</button>
+              <button id="play" class="icon big">▶</button>
+              <button id="ff" class="icon sm">⏩</button>
+              <button id="next" class="icon">⏭</button>
+            </div>
+
+            <div class="bottom">
+              <div class="left-controls">
+                <button id="shuffle" class="small">🔀</button>
+                <button id="repeat" class="small">🔁</button>
+              </div>
+
+              <div class="volume">
+                <button id="mute" class="small">🔊</button>
+                <input id="vol" type="range" min="0" max="1" step="0.01" value="1">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dropzone" id="dropzone">
+          Drag & Drop audio files here or click Upload
+        </div>
+      </section>
+
+      <aside class="right">
+        <div class="search-wrap">
+          <input id="search" placeholder="Search playlist..." />
+        </div>
+
+        <ul id="playlist" class="playlist"></ul>
+      </aside>
+    </main>
+
+    <audio id="audio" crossorigin="anonymous"></audio>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
